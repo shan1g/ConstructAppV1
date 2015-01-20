@@ -1,0 +1,116 @@
+/*
+ * Base Typography
+ */
+    @BaseFontSize: 13px;
+    @BaseFontFamily: Arial, Helvetica, sans-serif;
+    @BaseFontColor: @ColorGreyMain;
+/* 
+ * headings
+ */
+    @BaseHeadingColor: @ColorBlack;
+    @BaseHeadingSize: 17px;
+    @BaseHeadingWeight: normal;
+/*
+ * a
+ */
+    @BaseLinkColor:@ColorInherit;
+/* 
+ * a:hover
+ */
+    @BaseHoverColor: @ColorGreenMain;
+/*
+ * a:focus
+ */
+    @BaseFocusColor: @ColorGreenMain;
+    @BaseFocusBorder: dotted 1px #b6b6b6;
+/*
+ * abbr
+ */
+    @BaseAbbrBorder: solid 1px #000000;
+/*
+ * hr
+ */
+    @BaseHrColor: #000000;
+    @BaseHrBorder: solid 1px #000000; 
+/*
+ * Base Layout
+ */
+    @BaseSiteMaxWidth: 964px;// 980px to fix the wrapping images in our companies footer section
+    @BaseSiteMinWidth: 320px;
+/*
+ * Colors
+ */
+    @ColorInherit:inherit;
+    @ColorWhite:#ffffff;
+    @ColorBlack:#000000;
+    @colorRed:#f30000;
+    @ColorGreyMain:#757575;
+    @ColorGreyLight:#e9e7e8;
+    @ColorGreyMedium:#e0dedf;
+    @ColorGreyMediumAlt:#c0c0c0;
+    @ColorGreyDark:#515151;
+    @ColorGreenMain:#008641;
+    @ColorGreenLight:#07d46d;
+/*
+ * Gradients
+ */
+    /* Use: 
+    #someDiv {
+        .gradient-main-green(0%, #663333, 100%, #333333);
+        or
+        .gradient-main-green();
+    } 
+    */
+    .gradient-main-green (@StartPosition: 0%, @StartColor: #005f2e, @EndPosition: 100%, @EndColor: #003a1a) {    
+        background: @StartColor;
+        background: -moz-linear-gradient(top,  @StartColor @StartPosition, @EndColor @EndPosition);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(@StartPosition,@StartColor), color-stop(@EndPosition,#003a1a));
+        background: -webkit-linear-gradient(top,  @StartColor @StartPosition,@EndColor @EndPosition);
+        background: -o-linear-gradient(top,  @StartColor @StartPosition,@EndColor @EndPosition);
+        background: -ms-linear-gradient(top,  @StartColor @StartPosition,@EndColor @EndPosition);
+        background: linear-gradient(to bottom,  @StartColor @StartPosition,@EndColor @EndPosition);
+    }
+    .gradient-main-grey (@StartPosition: 0%, @StartColor: #626262, @EndPosition: 100%, @EndColor: #333333) {    
+        background: @StartColor;
+        background: -moz-linear-gradient(top,  @StartColor @StartPosition, @EndColor @EndPosition);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(@StartPosition,@StartColor), color-stop(@EndPosition,#003a1a));
+        background: -webkit-linear-gradient(top,  @StartColor @StartPosition,@EndColor @EndPosition);
+        background: -o-linear-gradient(top,  @StartColor @StartPosition,@EndColor @EndPosition);
+        background: -ms-linear-gradient(top,  @StartColor @StartPosition,@EndColor @EndPosition);
+        background: linear-gradient(to bottom,  @StartColor @StartPosition,@EndColor @EndPosition);
+    }
+/*
+ * Transitions
+ */
+    /* Use
+    #somediv {
+        .transition(all, 0.5s, ease-in);
+    } 
+    #somediv:hover {
+        opacity: 0;
+    }
+    */
+    .transition (@Prop: all, @Time: 0.5s, @Easing: linear) {
+        -webkit-transition: @Prop @Time @Easing;
+        -moz-transition: @Prop @Time @Easing;
+        -o-transition: @Prop @Time @Easing;
+        -ms-transition: @Prop @Time @Easing;
+        transition: @Prop @Time @Easing;
+    }  
+/*
+ * Hover Effects
+ */
+    .hover-effect-green {
+        .gradient-main-green;
+        .transition(all, 0.3s, ease-in);
+        &:hover {
+            .gradient-main-grey;
+        }
+    }
+    .hover-effect-grey {
+        .gradient-main-grey;
+        .transition(all, 0.3s, ease-in);
+        &:hover {
+            .gradient-main-green;
+        }
+    }

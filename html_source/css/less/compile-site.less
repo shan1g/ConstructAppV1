@@ -1,0 +1,51 @@
+/*
+ * Site Core Css
+ */
+@import "core/mixins.less";
+@import "core/clear.less";
+@import "core/typography.less";
+@import "core/grid.less";
+@import "core/helpers.less";
+@import "core/forms.less";
+
+
+/*
+ * Site Layout
+ */
+@import "template/base-layout.less";
+
+
+/*
+ * Site Plugins
+ */
+@import "plugins/form-validation/form-validation.less";
+
+
+/*
+ * Site Media Queries
+ */
+@media print {// Print css
+    //@import "";
+}
+@media(min-width: 1028px) {// Larger Desktops 1028 min
+    //@import "core/grid-media-adapt-1028.less";
+}
+@media(max-width: 1024px) {// Notebooks/Desktops 1024 max
+    //@import "core/grid-media-adapt-1024.less";
+}
+@media(max-width: 800px) {// Notebooks/Desktops 800 max
+    //@import "core/grid-media-adapt-800.less";
+}
+@media(max-width: 640px) {// Notebooks/Desktops 640 max
+    //@import "core/grid-media-adapt-640.less";
+    @import "core/grid-media-adapt.less";
+    @import "core/forms-media-adapt.less";
+}
+@media(max-width: 480px) {// Iphone/Tablets Landscape
+    //@import "";
+}
+@media(max-width: 320px) {// Iphone Portrait
+    html {
+            min-width: @BaseSiteMinWidth;
+    }
+}
