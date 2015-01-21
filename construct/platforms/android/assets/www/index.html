@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Construct</title>
+
+    <link href="css/foundation.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+	
+  </head>
+
+  <body>
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <div>
+
+        </div>
+        <div id="header-nav">
+          <span class="controls">
+              <button class="left-off-canvas-toggle menu-button">Menu</button>
+              <button class="back-button">Back</button>
+          </span>
+        </div>
+
+
+        <!-- Off Canvas Menu -->
+        <aside class="left-off-canvas-menu">
+          <!-- whatever you want goes here -->
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            ...
+          </ul>
+        </aside>
+
+        <div ng-show="loading"><img width="60px" src="images/framely.gif" alt=""/></div>
+        <div ng-view></div>
+
+      </div>
+    </div>
+
+
+     <!-- angularjs js -->
+    <script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script src="js/angular-sanitize.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/foundation/foundation.offcanvas.js"></script>
+	<script src="js/main.js"></script>
+	
+	<script src="lib/ng-cordova.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+  </body>
+</html>

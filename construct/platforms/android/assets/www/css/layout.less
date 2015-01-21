@@ -1,0 +1,119 @@
+body {
+  width:100%;
+  height:100%;
+  background: #fff url(../images/cold-night.jpg);
+  background-size: cover;
+
+  .off-canvas-wrap {
+	height:100%;
+
+	.inner-wrap {height:100%;}
+  }
+}
+
+button {outline:transparent !important}
+
+.material-button-fab {
+	position: absolute;
+	top: 130px;
+	right: 5px;
+	border-radius: 30px !important;
+	width: 60px;
+	display: block;
+	padding: 20px;
+	z-index: 10;
+	box-shadow: 0px 2px 4px #000;
+	background-color:#C00000;
+}
+
+.material-button-fab-top {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	border-radius: 30px !important;
+	width: 60px;
+	display: block;
+	padding: 29px;
+	z-index: 10;
+	box-shadow: 0px 2px 4px #000;
+}
+
+.material-button-fab-top:hover,.material-button-fab-top:focus  {
+	background-color:#ffffff;
+}
+
+.shadow {box-shadow: 0px 2px 4px #000;}
+
+.cbutton {
+  position:relative;
+  background: #2c3e50;
+  width: 50%;
+  display: block;
+  float: left;
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+  color: #ffffff;
+  text-align: left;
+  padding: 10px 10px;
+  text-shadow: 1px 2px 6px #000;
+  font-size: 24px;
+  border: 1px solid #fff;
+  border-bottom: 0;
+
+  .icon {
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	background: url(../images/icons_sprites.png) no-repeat -110px -14px;
+	width: 30px;
+	height: 65px;
+	display: block;
+	-webkit-transition: transform 0.8s;
+	transition: transform 0.8s;
+  }
+
+  &:active, &:hover , &:visited{
+	background: #336883; color: #ffffff;
+	.icon {-webkit-transform: translateX(-50px); transform: translateX(-50px);}
+  }
+}
+
+#footer-nav {
+  position:fixed;
+  bottom:0;
+  width: 100%;
+  display:block;
+  margin:0 auto;
+  //height:100px;
+
+  .controls {
+	position:relative;
+	width:100%;
+	margin:0 auto;
+	display:block;
+
+	.button {
+	  width: 49%;
+	}
+  }
+}
+
+#header-nav {
+  height: 50px;
+  overflow: hidden;
+  top:0;
+  width: 100%;
+  display:block;
+  margin:0 auto;
+  background-color: #1988B8;
+
+  .controls {
+	position:relative;
+	width:100%;
+	margin:0 auto;
+	display:block;
+
+	.menu-button {float:left}
+	.back-button {float:right}
+  }
+}
