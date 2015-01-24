@@ -11,6 +11,21 @@ body {
   }
 }
 
+.loader {
+  width: 48%;
+  position: absolute;
+  left: 27%;
+
+  img {margin: 0 auto; display:block}
+}
+
+#ViewStates {
+  overflow: hidden;
+  overflow-y: scroll;
+  position: relative;
+  height: 100%;
+}
+
 button {outline:transparent !important}
 
 .material-button-fab {
@@ -46,7 +61,7 @@ button {outline:transparent !important}
 
 .cbutton {
   position:relative;
-  background: #2c3e50;
+  //background: #2c3e50;
   width: 50%;
   display: block;
   float: left;
@@ -55,16 +70,20 @@ button {outline:transparent !important}
   color: #ffffff;
   text-align: left;
   padding: 10px 10px;
-  text-shadow: 1px 2px 6px #000;
-  font-size: 24px;
-  border: 1px solid #fff;
-  border-bottom: 0;
+  //text-shadow: 1px 2px 6px #000;
+  font-size: 18px;
+  //border: 1px solid #fff;
+  //border-bottom: 0;
+  background: -webkit-linear-gradient(left, #1988B8 , #0471A0); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1988B8, #0471A0); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1988B8, #0471A0); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #1988B8 , #0471A0); /* Standard syntax */
 
   .icon {
 	position: absolute;
 	right: 10px;
 	top: 0px;
-	background: url(../images/icons_sprites.png) no-repeat -110px -14px;
+	background: url(../images/icons_sprites.png) no-repeat -110px -18px;
 	width: 30px;
 	height: 65px;
 	display: block;
@@ -73,7 +92,8 @@ button {outline:transparent !important}
   }
 
   &:active, &:hover , &:visited{
-	background: #336883; color: #ffffff;
+	//background: #336883;
+	color: #ffffff;
 	.icon {-webkit-transform: translateX(-50px); transform: translateX(-50px);}
   }
 }
@@ -84,7 +104,7 @@ button {outline:transparent !important}
   width: 100%;
   display:block;
   margin:0 auto;
-  //height:100px;
+  background-color: #1988B8;
 
   .controls {
 	position:relative;
@@ -117,3 +137,40 @@ button {outline:transparent !important}
 	.back-button {float:right}
   }
 }
+
+.header-alert {
+  height: 49px;
+  overflow: hidden;
+  top:0;
+  width: 100%;
+  display:block;
+  margin:0 auto;
+  background-color: #1988B8;
+}
+
+//test purposes
+
+#emailListing {
+  margin: 0;
+  list-style:none;
+}
+
+#emailListing li {
+  overflow:hidden;
+  background-color:#ffffff;
+  cursor:pointer; *cursor:hand;
+  float: left;
+  width: 50%;
+  max-height: 180px;
+  height: 100%;
+}
+
+#emailListing li h4 {text-align:center; font-size: 13px; font-weight:bold}
+#emailListing li h5 {text-align:center; font-size: 12px;}
+.emailListing img {}
+
+
+#emailListing li:hover img {box-shadow: 0px 6px 8px -2px #000000;}
+#emailListing .selected, #emailListing .selected:hover {background-color:#008cba; }
+#emailListing .selected img {box-shadow: 0px 6px 8px -2px #000000;}
+#emailListing .selected h4, #emailListing .selected h5 {color:#ffffff}

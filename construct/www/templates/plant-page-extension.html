@@ -1,1 +1,13 @@
-<h1>Plant Page</h1>
+<div>
+    <h1 class="page-title">Plant Page</h1>
+
+    <button ng-click="getMessages()" class="button material-button-fab-top "></button>
+    <ul id="emailListing" class="accel">
+        <li ng-repeat="info in plantData">
+            <div class="container">
+                <img data-ng-src="{{plantData[$index].image_url}}"/>
+                <h4>{{plantData[$index].player.name}}</h4>
+            </div>
+        </li>
+    </ul>
+</div>

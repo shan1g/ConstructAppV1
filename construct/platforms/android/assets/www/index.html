@@ -6,34 +6,45 @@
 
     <link href="css/foundation.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
-	
+
   </head>
 
-  <body>
+  <body onload="onLoad()">
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
-        <div>
 
-        </div>
         <div id="header-nav">
           <span class="controls">
               <button class="left-off-canvas-toggle menu-button">Menu</button>
-              <button class="back-button">Back</button>
+              <div class="loader" ng-show="loading"><img width="60px" src="images/preloader.gif" alt=""/></div>
+              <button class="back-button" ng-show="isPage" onclick="navigator.app.backHistory()">Back</button>
+              <button class="back-button" ng-show="isHome" onclick="navigator.app.exitApp();">Exit</button>
           </span>
         </div>
-
+        <div class="header-alert">
+          <div id="mainAlert1" data-alert class="alert-box" tabindex="0" aria-live="assertive" role="dialogalert">
+            Your content goes here scope
+            <button href="#" tabindex="0" class="close" aria-label="Close Alert">&times;</button>
+          </div>
+        </div>
+        <div id="ViewStates" class="accel" ng-view></div>
+        <div id="footer-nav" ng-show="isHome">
+          <span class="controls">
+              <a href="#plant" class="cbutton">Plant<span class="icon"></span></a>
+              <a href="#diesel" class="cbutton">Diesel<span class="icon"></span></a>
+          </span>
+        </div>
 
         <!-- Off Canvas Menu -->
         <aside class="left-off-canvas-menu">
           <!-- whatever you want goes here -->
-          <ul>
-            <li><a href="#">Item 1</a></li>
-            ...
+          <ul class="menu">
+            <li><a href="#">Home<span class="icon"></span></a></li>
+            <li><a href="#plant">Plant<span class="icon"></span></a></li>
+            <li><a href="#diesel">Diesel<span class="icon"></span></a></li>
+            <li><a href="#" onclick="navigator.app.exitApp();">Exit<span class="icon"></span></a></li>
           </ul>
         </aside>
-
-        <div ng-show="loading"><img width="60px" src="images/framely.gif" alt=""/></div>
-        <div ng-view></div>
 
       </div>
     </div>
@@ -44,14 +55,13 @@
 	<script src="js/angular-route.min.js"></script>
 	<script src="js/angular-sanitize.js"></script>
     <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/foundation/foundation.offcanvas.js"></script>
 	<script src="js/main.js"></script>
-	
-	<script src="lib/ng-cordova.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
+    <script src="js/app.js"></script>
+
+    <script src="js/fastclick.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 

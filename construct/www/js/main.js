@@ -1,81 +1,36 @@
-var app = angular.module("myApp", ['ngRoute', 'ngSanitize']);
-
-// paging provider and listener
-app.config(function($routeProvider){
-	$routeProvider.when('/', {
-		templateUrl: "templates/landing-page-extension.html",
-		controller: "HomeCtrl"
-	})
-	.when('/plant', {
-		templateUrl: "templates/plant-page-extension.html",
-		controller: "PlantCtrl"
-	})
-	.when('/diesel', {
-		templateUrl: "templates/diesel-page-extension.html",
-		controller: "DieselCtrl"
-	})
-	.otherwise({redirect: '/'});
-});
-
-app.service('mailService', ['$http', '$q', function($http, $q){
-	var page = 0;
-	
-	var getMail = function() {		
-		var paging = page + 1;
-		page = paging;
-		return $http.jsonp('http://api.dribbble.com/shots/popular?page=' + paging + '&callback=JSON_CALLBACK');
-	};
-	
-	var sendEmail = function(mail) {
-		var d = $q.defer();
-		alert(mail);
-		$http({
-			method: 'POST',
-			data: mail,
-			url: '/api/send'
-		}).success(function(data, status, headers){
-			d.resolve(data);
-		}).error(function(data, status, headers){
-			d.reject(data);
-		});
-		return d.promise;
-	};
-	
-	return {		
-		getMail: getMail,
-		sendEmail: sendEmail
-	};
-}]);
-
-
-app.controller('PlantCtrl', ['$scope', 'mailService', '$rootScope', function($scope, mailService, $rootScope){
-	$scope.email = [];
-
-	var getMessages = mailService.getMail()
-	.success(function(data, status, error, paging){
-		//console.log(paging);
-		$scope.email = data.shots;
-		
-	})
-	.error(function(status, error){
-		
+// jquery and device loads
+function onLoad() {
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+// device APIs are available
+function onDeviceReady() {
+	// Now safe to use device APIs
+	$(document).foundation({
+		offcanvas : {
+			// Sets method in which offcanvas opens.
+			// [ move | overlap_single | overlap ]
+			open_method: 'overlap',
+			// Should the menu close when a menu link is clicked?
+			// [ true | false ]
+			close_on_click : true
+		}
 	});
-	getMessages;
-	
-	$scope.getMessages = function() {
-		$rootScope.loading = true;
-		var getMessages = mailService.getMail()
-		.success(function(data, status, error, paging){
-			$scope.email = data.shots;
-			$rootScope.loading = false;
-		})
-		.error(function(status, error){
-			$rootScope.loading = false;
-		});
-		getMessages;
-	};
-}]);
+	FastClick.attach(document.body);
+}
 
-app.controller('DieselCtrl', ['$scope', '$rootScope', 'mailService', function($scope, $rootScope, mailService){
+// check if app put in background
+document.addEventListener("pause", onPause, false);
 
-}]);
+function onPause() {
+	// Handle the pause event
+}
+
+// check if app retrieved from background
+document.addEventListener("resume", onResume, false);
+
+function onResume() {
+	// Handle the resume event
+}
+
+// local test
+$(document).foundation();
