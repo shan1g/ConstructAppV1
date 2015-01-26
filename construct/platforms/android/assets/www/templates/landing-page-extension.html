@@ -1,5 +1,32 @@
 <section>
-    <h1>App Title here</h1>
+    <img style="padding: 14px;" src="images/app_banner_logo.png" />
+    <div id="footer-nav">
+        <div class="animate-switch-container" ng-switch on="loggedIn">
+            <span class="controls animate-switch" ng-switch-default>
+              <p>Welcome to the Construction App<br/> Connect and enjoy</p>
+              <button ng-click="connectUser()" class="button radius full-width">Connect</button>
+            </span>
+            <span class="controls animate-switch"  ng-switch-when="connecting">
+                <form name="loginForm" ng-submit="userAuth()">
+                  <input type="text" placeholder="username" name="username" ng-model="loginData.username" ng-minlength=3 ng-maxlength=20 ng-pattern="/^[a-zA-Z]+$/" required>
+                    <div ng-show="loginForm.username.$dirty && loginForm.username.$invalid">
+                        <div ng-show="loginForm.username.$error.required">Your username is required</div>
+                        <div ng-show="loginForm.username.$error.minlength">Your username must be greater than 3 characters</div>
+                        <div ng-show="loginForm.username.$error.maxlength">Your username must be less than 20 characters</div>
+                    </div>
+                  <input type="password" placeholder="password" name="password" ng-model="loginData.password" ng-minlength=5 ng-maxlength=20 required>
+                    <div ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+                        <div ng-show="loginForm.password.$error.min">Your password must be at least 5 characters</div>
+                        <div ng-show="loginForm.password.$error.max">Your password is too long, we suggest keeping it simpler</div>
+                    </div>
+                  <button type="submit" class="button radius full-width" ng-show="loginForm.$valid" ng-disabled="loginForm.$dirty && loginForm.$invalid">login</button>
+                </form>
+            </span>
+            <span class="controls animate-switch" ng-switch-when="connected">
+              <a href="#plant" class="button radius full-width">Plant<span class="icon"></span></a>
+              <a href="#diesel" class="button radius full-width">Diesel<span class="icon"></span></a>
+            </span>
+        </div>
 
-
+    </div>
 </section>

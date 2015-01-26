@@ -9,7 +9,7 @@
 
   </head>
 
-  <body onload="onLoad()">
+  <body onload="onLoad()" ng-controller="appCtrl" class="{{changeBg}}">
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
 
@@ -21,25 +21,20 @@
               <button class="back-button" ng-show="isHome" onclick="navigator.app.exitApp();">Exit</button>
           </span>
         </div>
-        <div class="header-alert">
-          <div id="mainAlert1" data-alert class="alert-box" tabindex="0" aria-live="assertive" role="dialogalert">
-            Your content goes here scope
-            <button href="#" tabindex="0" class="close" aria-label="Close Alert">&times;</button>
+        <div class="header-alert" ng-show="isActiveMessage" ng-controller="notificationCtrl">
+          <div id="notificationPanel">
+            {{notifications}}
           </div>
+          <button tabindex="0" id="closeNotificationPanel" ng-click="isActiveMessage = false"></button>
         </div>
         <div id="ViewStates" class="accel" ng-view></div>
-        <div id="footer-nav" ng-show="isHome">
-          <span class="controls">
-              <a href="#plant" class="cbutton">Plant<span class="icon"></span></a>
-              <a href="#diesel" class="cbutton">Diesel<span class="icon"></span></a>
-          </span>
-        </div>
+
 
         <!-- Off Canvas Menu -->
         <aside class="left-off-canvas-menu">
           <!-- whatever you want goes here -->
           <ul class="menu">
-            <li><a href="#">Home<span class="icon"></span></a></li>
+            <li><a href="#home">Home<span class="icon"></span></a></li>
             <li><a href="#plant">Plant<span class="icon"></span></a></li>
             <li><a href="#diesel">Diesel<span class="icon"></span></a></li>
             <li><a href="#" onclick="navigator.app.exitApp();">Exit<span class="icon"></span></a></li>
@@ -54,6 +49,8 @@
     <script src="js/angular.min.js"></script>
 	<script src="js/angular-route.min.js"></script>
 	<script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/modernizr.js"></script>
     <script src="js/foundation.min.js"></script>

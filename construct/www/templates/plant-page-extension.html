@@ -1,13 +1,10 @@
 <div>
-    <h1 class="page-title">Plant Page</h1>
-
-    <button ng-click="getMessages()" class="button material-button-fab-top "></button>
-    <ul id="emailListing" class="accel">
-        <li ng-repeat="info in plantData">
-            <div class="container">
-                <img data-ng-src="{{plantData[$index].image_url}}"/>
-                <h4>{{plantData[$index].player.name}}</h4>
-            </div>
-        </li>
-    </ul>
+    <h1 class="page-title">Plant processing</h1>
+    <div class="button-container">
+        <a href="#plant/capture-start-time" class="button radius full-width">Capture Start Time</a>
+        <a href="#plant/capture-stop-time" class="button radius full-width">Capture Stop Time</a>
+        <a href="#plant/receive-plant" class="button radius full-width">Receive Plant</a>
+        <a href="#plant/update-plant" class="button radius full-width">Update Plant</a>
+        <a href="#plant/return-plant" class="button radius full-width">Return Plant</a>
+    </div>
 </div>

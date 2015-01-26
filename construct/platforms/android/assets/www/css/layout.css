@@ -28,78 +28,6 @@ body .off-canvas-wrap .inner-wrap {
 button {
   outline: transparent !important;
 }
-.material-button-fab {
-  position: absolute;
-  top: 130px;
-  right: 5px;
-  border-radius: 30px !important;
-  width: 60px;
-  display: block;
-  padding: 20px;
-  z-index: 10;
-  box-shadow: 0px 2px 4px #000;
-  background-color: #C00000;
-}
-.material-button-fab-top {
-  position: absolute;
-  top: 0px;
-  right: 5px;
-  border-radius: 30px !important;
-  width: 60px;
-  display: block;
-  padding: 29px;
-  z-index: 10;
-  box-shadow: 0px 2px 4px #000;
-}
-.material-button-fab-top:hover,
-.material-button-fab-top:focus {
-  background-color: #ffffff;
-}
-.shadow {
-  box-shadow: 0px 2px 4px #000;
-}
-.cbutton {
-  position: relative;
-  width: 50%;
-  display: block;
-  float: left;
-  -webkit-transition: background 0.4s;
-  transition: background 0.4s;
-  color: #ffffff;
-  text-align: left;
-  padding: 10px 10px;
-  font-size: 18px;
-  background: -webkit-linear-gradient(left, #1988b8, #0471a0);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #1988b8, #0471a0);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #1988b8, #0471a0);
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #1988b8, #0471a0);
-  /* Standard syntax */
-}
-.cbutton .icon {
-  position: absolute;
-  right: 10px;
-  top: 0px;
-  background: url(../images/icons_sprites.png) no-repeat -110px -18px;
-  width: 30px;
-  height: 65px;
-  display: block;
-  -webkit-transition: transform 0.8s;
-  transition: transform 0.8s;
-}
-.cbutton:active,
-.cbutton:hover,
-.cbutton:visited {
-  color: #ffffff;
-}
-.cbutton:active .icon,
-.cbutton:hover .icon,
-.cbutton:visited .icon {
-  -webkit-transform: translateX(-50px);
-  transform: translateX(-50px);
-}
 #footer-nav {
   position: fixed;
   bottom: 0;
@@ -125,6 +53,9 @@ button {
   display: block;
   margin: 0 auto;
   background-color: #1988B8;
+  box-shadow: 0px -2px 6px #000000;
+  -webkit-box-shadow: 0px -2px 6px #000000;
+  position: relative;
 }
 #header-nav .controls {
   position: relative;
@@ -139,7 +70,6 @@ button {
   float: right;
 }
 .header-alert {
-  height: 49px;
   overflow: hidden;
   top: 0;
   width: 100%;
@@ -147,40 +77,44 @@ button {
   margin: 0 auto;
   background-color: #1988B8;
 }
-#emailListing {
-  margin: 0;
-  list-style: none;
-}
-#emailListing li {
-  overflow: hidden;
-  background-color: #ffffff;
-  cursor: pointer;
-  *cursor: hand;
-  float: left;
-  width: 50%;
-  max-height: 180px;
-  height: 100%;
-}
-#emailListing li h4 {
-  text-align: center;
-  font-size: 13px;
-  font-weight: bold;
-}
-#emailListing li h5 {
-  text-align: center;
+.header-alert #notificationPanel {
+  color: #fff;
   font-size: 12px;
+  padding: 11px 15px;
+  float: left;
 }
-#emailListing li:hover img {
-  box-shadow: 0px 6px 8px -2px #000000;
+.header-alert #closeNotificationPanel {
+  background: url(../images/icons_sprites.png) no-repeat 0px -5px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+  float: right;
 }
-#emailListing .selected,
-#emailListing .selected:hover {
-  background-color: #008cba;
+.info-panel {
+  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+  margin-top: 8px;
+  max-height: 480px;
 }
-#emailListing .selected img {
-  box-shadow: 0px 6px 8px -2px #000000;
+.info-panel .info-pane {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.31);
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: -2px 4px 7px -3px #000000;
+  -webkit-box-shadow: -2px 4px 7px -3px #000000;
 }
-#emailListing .selected h4,
-#emailListing .selected h5 {
-  color: #ffffff;
+.info-panel .info-pane h5 {
+  position: absolute;
+  top: 33%;
+  right: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 2px 10px #000;
+}
+.info-panel .info-pane img {
+  width: 100%;
 }

@@ -15,6 +15,16 @@ function onDeviceReady() {
 			close_on_click : true
 		}
 	});
+	if (navigator.notification) { // Override default HTML alert with native dialog
+		window.alert = function (message) {
+			navigator.notification.alert(
+				message,    // message
+				null,       // callback
+				"Workshop", // title
+				'OK'        // buttonName
+			);
+		};
+	};
 	FastClick.attach(document.body);
 }
 
